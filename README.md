@@ -1,20 +1,11 @@
 # Permfix
-<<<<<<< HEAD
 A utility for recursively changing the permissions within a directory while differentiating between subdirectories and regular files.
-=======
 A utility for recursively changing the permissions within a directory while differentiation between subdirectories and regular files. `permfix` is short for Permission Fixer.
->>>>>>> security
 
 ## Project aim
 On Unix-like systems, it sometimes happens that the permissions within a given directory tree will be incorrect and need to be changed.  While the `chmod` utility can operate recursively, it cannot differentiate between regular files and subdirectories, which often require different permissions.  This program allows one to change the permissions for directories and files separately throughout a directory tree of arbitraty depth.
 
 ## Dependencies
-<<<<<<< HEAD
-`permfix` depends on Bash, `ls`, `chmod`, and `cut`.  Bash is the GNU Bourne Again Shell, and should be present on almost all Unix-like operating systems.  `ls`, `chmod`, and `cut` are part of both the POSIX specification and the GNU Core Utilities and should likewise be present on all Unix-like operation systems.
-
-## Installation
-`permfix` is a simple shell script which may be run in place.  Nevertheless, a makefile is provided which merely copies the program to `/usr/local/bin/permfix` and sets the appropriate permissions.  Simply run `sudo make install` to install the program, and `sudo make uninstall` to remove it.
-=======
 `permfix` has the following dependencies:
 
 * Bash
@@ -27,7 +18,6 @@ Bash is the GNU Bourne Again Shell, and should be present on almost all Unix-lik
 
 ## Installation
 Permfix is a simple shell script which may be run in place.  To do this, simply navigate to the directory containing `permfix.sh` and execute `chmod +x permfix.sh` or `chmod 700 permfix.sh`.  One can then execute the program by invoking `./permfix.sh` if in the same directory, or else by invoking the full pathname of the file.  For users who wish to more permanently install the software, a makefile is provided which copies the program to `/usr/local/bin/permfix` and sets the appropriate permissions.  Simply run `sudo make install` to install the program, and `sudo make uninstall` to remove it.  Users should ensure that their operating system contains this directory as part of the PATH environment variable before running the install command.
->>>>>>> security
 
 ## Usage
 `permfix` takes up to three arguments; only the first is required.  The first argument is the path (absolute or relative) to the file or directory to be modified.  The second and third arguments, which are optional, are the permissions to be assigned for files and directories respectively.  The default file permissions are 644 (or `-rw-r--r--`) for files and 755 (or `drwx-r-x-r-x`) for directories.  If the first argument is a regular file, `permfix` will operate identically to `chmod`, using the second argument as the permissions.
