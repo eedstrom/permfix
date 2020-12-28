@@ -1,17 +1,17 @@
 # Permfix
-A utility for recursively changing the permissions within a directory while differentiation between subdirectories and regular files.
+A utility for recursively changing the permissions within a directory while differentiating between subdirectories and regular files.
 
 ## Project aim
 On Unix-like systems, it sometimes happens that the permissions within a given directory tree will be incorrect and need to be changed.  While the `chmod` utility can operate recursively, it cannot differentiate between regular files and subdirectories, which often require different permissions.  This program allows one to change the permissions for directories and files separately throughout a directory tree of arbitraty depth.
 
 ## Dependencies
-Permfix depends on Bash, `ls`, `chmod`, and `cut`.  Bash is the GNU Bourne Again Shell, and should be present on almost all Unix-like operating systems.  `ls`, `chmod`, and `cut` are part of both the POSIX specification and the GNU Core Utilities and should likewise be present on all Unix-like operation systems.
+`permfix` depends on Bash, `ls`, `chmod`, and `cut`.  Bash is the GNU Bourne Again Shell, and should be present on almost all Unix-like operating systems.  `ls`, `chmod`, and `cut` are part of both the POSIX specification and the GNU Core Utilities and should likewise be present on all Unix-like operation systems.
 
 ## Installation
-Permfix is a simple shell script which may be run in place.  Nevertheless, a makefile is provided which merely copies the program to `/usr/local/bin/permfix` and sets the appropriate permissions.  Simply run `sudo make install` to install the program, and `sudo make uninstall` to remove it.
+`permfix` is a simple shell script which may be run in place.  Nevertheless, a makefile is provided which merely copies the program to `/usr/local/bin/permfix` and sets the appropriate permissions.  Simply run `sudo make install` to install the program, and `sudo make uninstall` to remove it.
 
 ## Usage
-`permfix` takes up to three arguments; only the first is required.  The first argument is the path (absolute or relative) to the file or directory to be modified.  The second and third arguments, which are optional, are the permissions to be assigned for files and directories respectively.  The default file permissions are 644 (or -rw-r--r--) for files and 755 (or drwx-r-x-r-x) for directories.  If the first argument is a regular file, `permfix` will operate identically to `chmod`, using the second argument as the permissions.
+`permfix` takes up to three arguments; only the first is required.  The first argument is the path (absolute or relative) to the file or directory to be modified.  The second and third arguments, which are optional, are the permissions to be assigned for files and directories respectively.  The default file permissions are 644 (or `-rw-r--r--`) for files and 755 (or `drwx-r-x-r-x`) for directories.  If the first argument is a regular file, `permfix` will operate identically to `chmod`, using the second argument as the permissions.
 
 Because the second and third arguments are taken as strings, either symbolic permissions or absolute (octal) permissions may be used.  No error checking is performed on the arguments (other than that provided by `chmod` itself), so users should take care that the arguments are valid permission modes.
 
@@ -26,4 +26,5 @@ Bugfixes and improvements are very much welcome.  Some ideas include:
 
 ## License and Copyright
 `permfix` is Copyright (C) 2020 Eric Edstrom
+
 `permfix` is licensed under the GNU General Public License version 3, or any later version.  For full details please see the LICENSE.md file.

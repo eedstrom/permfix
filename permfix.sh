@@ -51,6 +51,25 @@ dirfix () {
 	)
 	done
 	}
+if [ "$1" == '/' ] || [ "$1" == '/bin' ] || [ "$1" == '/boot' ] || [ "$1" == '/dev' ] || [ "$1" == '/efi' ]
+then
+	echo "WARNING: You have attempted to use permfix on a sensitive system directory.  This is not permitted as it could (and probably will) render your system unusable."
+	exit 0
+fi
+if [ "$(whoami)" == 'root' ]
+then
+	echo "WARNING: You are currently running as root."
+	echo -e "\nRunning permfix as root is highly discouraged as it could IRREPARABLY damage your system."
+	echo "Please ensure that the file or directory you are attempting to modify is not critical to your system in any way."
+	echo "If you are confused by this warning or unsure of what the target directory does, DO NOT PROCEED."
+	echo -e "\nIf you are sure you wish to continue, type 'YES' at the prompt below.  Otherwise, type any other characters to abort"
+	echo -en "\nAre you sure you wish to proceed? "
+	read confirm
+	if [ "$confirm" != 'YES' ]
+	then
+		exit 0
+	fi
+fi
 fperm=644
 dperm=755
 if [ -n "$2" ]
