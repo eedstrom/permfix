@@ -14,7 +14,7 @@ On Unix-like systems, it sometimes happens that the permissions within a given d
 * cut
 * (Optional) make
 
-Bash is the GNU Bourne Again Shell, and should be present on almost all Unix-like operating systems.  To my knowledge, there is nothing in the program that requires a particularly recent version of Bash, but I cannot guarantee compatability with legacy releases.  Users of operating systems which package highly outdated version of Bash (namely, macOS) may want to consider installing a newer version to avoid problems.  `permfix` is tested on Arch Linux using the latest version of Bash 5.1. `ls`, `chmod`, and `cut` are part of both the POSIX specification and the GNU Core Utilities and should likewise be present on all Unix-like operating systems.  `make` is required only for those who wish to use the provided makefile.
+Bash is the GNU Bourne Again Shell, and should be present on almost all Unix-like operating systems.  To my knowledge, there is nothing in the program that requires a particularly recent version of Bash, but I cannot guarantee compatability with legacy releases.  Users of operating systems which package highly outdated versions of Bash (namely, macOS) may want to consider installing a newer version to avoid problems.  `permfix` is tested on Arch Linux using the latest version of Bash 5.1. `ls`, `chmod`, and `cut` are part of both the POSIX specification and the GNU Core Utilities and should likewise be present on all Unix-like operating systems.  `make` is required only for those who wish to use the provided makefile.
 
 ## Installation
 Permfix is a simple shell script which may be run in place.  To do this, simply navigate to the directory containing `permfix.sh` and execute `chmod +x permfix.sh` or `chmod 700 permfix.sh`.  One can then execute the program by invoking `./permfix.sh` if in the same directory, or else by invoking the full pathname of the file.  For users who wish to more permanently install the software, a makefile is provided which copies the program to `/usr/local/bin/permfix` and sets the appropriate permissions.  Simply run `sudo make install` to install the program, and `sudo make uninstall` to remove it.  Users should ensure that their operating system contains this directory as part of the PATH environment variable before running the install command.
@@ -37,4 +37,4 @@ Bugfixes and improvements are very much welcome.  Some ideas include:
 ## License and Copyright
 `permfix` is Copyright (C) 2020 Eric Edstrom
 
-`permfix` is licensed under the GNU General Public License version 3, or any later version.  For full details please see the LICENSE.md file.
+`permfix` is licensed under the GNU General Public License version 3, or any later version.  For full details please see the `LICENSE.md` file.
