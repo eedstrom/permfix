@@ -20,7 +20,7 @@ dirfix () {
 	do
 		if [ "$(ls -ld $1/$i | cut -c-1 -)" == '-' ]
 		then
-			chmod $fperm $1/$i
+			chmod --preserve-root $fperm $1/$i
 		fi
 		if [ "$(ls -ld $1/$i | cut -c-1 -)" != '-' ] && [ "$(ls -ld $1/$i | cut -c-1 -)" != 'd' ]
 		then
@@ -34,10 +34,10 @@ dirfix () {
 		cd $1
 		if [ "$(ls -ld $i | cut -c-1 -)" == '-' ]
 		then
-			chmod $fperm $i
+			chmod --preserve-root $fperm $i
 		elif [ "$(ls -ld $i | cut -c-1 -)" == 'd' ]
 		then
-			chmod $dperm $i
+			chmod --preserve-root $dperm $i
 			(
 			cd $i
 			for j in $(ls -d)
@@ -90,10 +90,10 @@ then
 fi
 if [ "$(ls -ld $1 | cut -c-1 -)" == '-' ]
 then
-	chmod $fperm $1
+	chmod --preserve-root $fperm $1
 elif [ "$(ls -ld $1 | cut -c-1 -)" == 'd' ]
 then
-	chmod $dperm $1
+	chmod --preserve-root $dperm $1
 	dirfix $1
 else
 	1>&2 echo "Error: unsupported file type"
