@@ -2,7 +2,7 @@
 A utility for recursively changing the permissions within a directory while differentiating between subdirectories and regular files.
 A utility for recursively changing the permissions within a directory while differentiation between subdirectories and regular files. `permfix` is short for Permission Fixer.
 
-## Project aim
+## Project Aim
 On Unix-like systems, it sometimes happens that the permissions within a given directory tree will be incorrect and need to be changed.  While the `chmod` utility can operate recursively, it cannot differentiate between regular files and subdirectories, which often require different permissions.  This program allows one to change the permissions for directories and files separately throughout a directory tree of arbitraty depth.
 
 ## Dependencies
