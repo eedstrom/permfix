@@ -55,7 +55,7 @@ dirfix () {
 if [ "$1" == '/' ]
 then
 		echo "WARNING: You have attempted to use permfix on a sensitive system directory.  This is not permitted as it can (and probably will) render your system unusable."
-		exit 0
+		exit 10
 fi
 
 # Prevent the use of permfix on any immeidate subdirectories of root
@@ -64,7 +64,7 @@ do
 	if [ "$1" == $i ]
 	then
 		echo "WARNING: You have attempted to use permfix on a sensitive system directory.  This is not permitted as it can (and probably will) render your system unusable."
-		exit 0
+		exit 10
 	fi
 done
 
@@ -80,7 +80,7 @@ then
 	read confirm
 	if [ "$confirm" != 'YES' ]
 	then
-		exit 0
+		exit 11
 	fi
 fi
 
@@ -108,4 +108,5 @@ then
 	dirfix $1
 else
 	1>&2 echo "Error: unsupported file type" # Warn about symlinks, etc.
+	exit 1
 fi
